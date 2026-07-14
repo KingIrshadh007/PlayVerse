@@ -1,1 +1,465 @@
+/* =====================================
+   PLAYVERSE - PLAYER PROFILE STYLE
+===================================== */
 
+
+*{
+
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',Arial,sans-serif;
+
+}
+
+
+
+body{
+
+    min-height:100vh;
+
+    background:
+
+    radial-gradient(circle at top,
+    #ec4899,
+    #020617 65%);
+
+    color:white;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+}
+
+
+
+
+
+
+/* HEADER */
+
+
+header{
+
+
+    width:100%;
+
+
+    padding:25px;
+
+
+    display:flex;
+
+
+    justify-content:space-between;
+
+
+    align-items:center;
+
+
+    background:
+
+    rgba(255,255,255,.08);
+
+
+    backdrop-filter:blur(15px);
+
+
+}
+
+
+
+header h1{
+
+
+    color:#f9a8d4;
+
+
+    font-size:32px;
+
+
+}
+
+
+
+
+header a{
+
+
+    text-decoration:none;
+
+
+    background:#f9a8d4;
+
+
+    color:#020617;
+
+
+    padding:10px 20px;
+
+
+    border-radius:25px;
+
+
+    font-weight:bold;
+
+
+}
+
+
+
+
+
+
+
+/* PROFILE CARD */
+
+
+.profile-box{
+
+
+    width:90%;
+
+
+    max-width:900px;
+
+
+    margin-top:50px;
+
+
+    padding:40px;
+
+
+    text-align:center;
+
+
+
+    background:
+
+    rgba(255,255,255,.1);
+
+
+
+    backdrop-filter:blur(20px);
+
+
+
+    border-radius:35px;
+
+
+
+    box-shadow:
+
+    0 0 50px rgba(236,72,153,.5);
+
+
+}
+
+
+
+
+
+
+/* AVATAR */
+
+
+.avatar{
+
+
+    width:120px;
+
+
+    height:120px;
+
+
+    margin:auto;
+
+
+    display:flex;
+
+
+    justify-content:center;
+
+
+    align-items:center;
+
+
+
+    font-size:70px;
+
+
+
+    background:#020617;
+
+
+
+    border-radius:50%;
+
+
+
+    border:
+
+    4px solid #f9a8d4;
+
+
+
+    box-shadow:
+
+    0 0 30px #f9a8d4;
+
+
+}
+
+
+
+
+
+#playerName{
+
+
+    margin-top:20px;
+
+
+    color:#f9a8d4;
+
+
+    font-size:35px;
+
+
+}
+
+
+
+
+
+button{
+
+
+    margin:20px;
+
+
+    padding:12px 30px;
+
+
+    border:none;
+
+
+    border-radius:30px;
+
+
+    background:#f9a8d4;
+
+
+    color:#020617;
+
+
+    font-size:17px;
+
+
+    font-weight:bold;
+
+
+    cursor:pointer;
+
+
+    transition:.3s;
+
+
+}
+
+
+
+
+button:hover{
+
+
+    transform:scale(1.1);
+
+
+    box-shadow:
+
+    0 0 25px #f9a8d4;
+
+
+}
+
+
+
+
+
+
+/* STATS */
+
+
+.stats{
+
+
+    display:grid;
+
+
+    grid-template-columns:
+
+    repeat(3,1fr);
+
+
+
+    gap:25px;
+
+
+
+    margin:40px 0;
+
+
+}
+
+
+
+
+.stats div{
+
+
+    background:
+
+    rgba(0,0,0,.4);
+
+
+
+    padding:25px;
+
+
+
+    border-radius:25px;
+
+
+
+    font-size:20px;
+
+
+}
+
+
+
+.stats h2{
+
+
+    color:#22d3ee;
+
+
+    margin-top:15px;
+
+
+}
+
+
+
+
+
+
+/* BADGES */
+
+
+#badges{
+
+
+    display:flex;
+
+
+    justify-content:center;
+
+
+    gap:20px;
+
+
+    flex-wrap:wrap;
+
+
+    margin-top:25px;
+
+
+}
+
+
+
+
+.badge{
+
+
+    padding:15px 25px;
+
+
+    background:
+
+    rgba(255,255,255,.15);
+
+
+
+    border-radius:30px;
+
+
+
+    font-size:18px;
+
+
+    border:
+
+    2px solid #f9a8d4;
+
+
+}
+
+
+
+
+
+/* MOBILE */
+
+
+@media(max-width:700px){
+
+
+header{
+
+
+    flex-direction:column;
+
+
+    gap:15px;
+
+
+}
+
+
+
+.profile-box{
+
+
+    padding:25px;
+
+
+}
+
+
+
+.stats{
+
+
+    grid-template-columns:1fr;
+
+
+}
+
+
+
+#playerName{
+
+
+    font-size:28px;
+
+
+}
+
+
+}
