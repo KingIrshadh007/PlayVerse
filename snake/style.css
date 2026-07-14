@@ -1,1 +1,381 @@
+/* =====================================
+   PLAYVERSE - SNAKE GAME PRO STYLE
+===================================== */
+
+
+/* RESET */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',Arial,sans-serif;
+}
+
+
+body{
+
+    min-height:100vh;
+
+    background:
+    radial-gradient(circle at top,
+    #0ea5e9,
+    #020617 60%);
+
+    color:white;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    overflow-x:hidden;
+
+}
+
+
+
+/* HEADER */
+
+
+header{
+
+    width:100%;
+
+    padding:25px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    background:
+    rgba(255,255,255,0.08);
+
+    backdrop-filter:blur(15px);
+
+}
+
+
+header h1{
+
+    color:#22d3ee;
+
+    font-size:32px;
+
+}
+
+
+header a{
+
+    color:white;
+
+    text-decoration:none;
+
+    padding:10px 20px;
+
+    background:#22d3ee;
+
+    color:#020617;
+
+    border-radius:20px;
+
+    font-weight:bold;
+
+}
+
+
+
+
+
+/* SCORE AREA */
+
+
+.game-info{
+
+
+    margin-top:30px;
+
+    display:flex;
+
+    gap:40px;
+
+    font-size:22px;
+
+    font-weight:bold;
+
+
+}
+
+
+
+.game-info span{
+
+    color:#22d3ee;
+
+}
+
+
+
+
+
+/* BUTTON AREA */
+
+
+.controls{
+
+
+    margin:30px;
+
+    display:flex;
+
+    gap:15px;
+
+    flex-wrap:wrap;
+
+    justify-content:center;
+
+}
+
+
+
+button,
+select{
+
+
+    padding:12px 22px;
+
+    border:none;
+
+    border-radius:25px;
+
+    font-size:16px;
+
+    cursor:pointer;
+
+    font-weight:bold;
+
+
+}
+
+
+button{
+
+
+    background:#22d3ee;
+
+    color:#020617;
+
+    transition:.3s;
+
+}
+
+
+
+button:hover{
+
+
+    transform:scale(1.08);
+
+    box-shadow:
+    0 0 20px #22d3ee;
+
+
+}
+
+
+
+select{
+
+    background:white;
+
+}
+
+
+
+
+
+/* GAME BOARD */
+
+
+canvas{
+
+
+    background:#020617;
+
+
+    border:
+
+    5px solid #22d3ee;
+
+
+    border-radius:15px;
+
+
+    box-shadow:
+
+    0 0 30px rgba(34,211,238,.5);
+
+
+
+}
+
+
+
+
+
+/* MOBILE CONTROLS */
+
+
+.mobile-controls{
+
+
+    margin-top:30px;
+
+    text-align:center;
+
+
+}
+
+
+.mobile-controls button{
+
+
+    margin:5px;
+
+    width:60px;
+
+    height:60px;
+
+    font-size:25px;
+
+
+}
+
+
+
+
+
+/* GAME OVER */
+
+
+#gameOver{
+
+
+    display:none;
+
+
+    position:fixed;
+
+
+    top:50%;
+
+    left:50%;
+
+
+    transform:
+    translate(-50%,-50%);
+
+
+
+    background:
+
+    rgba(15,23,42,.95);
+
+
+    padding:40px;
+
+
+    border-radius:25px;
+
+
+    text-align:center;
+
+
+    box-shadow:
+
+    0 0 40px #22d3ee;
+
+
+}
+
+
+
+#gameOver h2{
+
+
+    color:#ef4444;
+
+    margin-bottom:20px;
+
+
+}
+
+
+
+#gameOver p{
+
+
+    font-size:22px;
+
+    margin-bottom:20px;
+
+
+}
+
+
+
+
+
+/* MOBILE RESPONSIVE */
+
+
+@media(max-width:600px){
+
+
+header{
+
+
+    flex-direction:column;
+
+    gap:15px;
+
+}
+
+
+
+header h1{
+
+
+    font-size:25px;
+
+
+}
+
+
+
+canvas{
+
+
+    width:90vw;
+
+    height:90vw;
+
+
+}
+
+
+
+.game-info{
+
+
+    font-size:18px;
+
+}
+
+
+
+}
 
