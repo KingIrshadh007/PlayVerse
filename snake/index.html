@@ -1,1 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Snake Game Pro - PlayVerse</title>
+
+<meta name="description" content="Play the classic Snake Game online. Eat food, increase your score and beat your high score.">
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+<header>
+
+<h1>
+🐍 Snake Game Pro
+</h1>
+
+<a href="../../index.html">
+⬅ Back to PlayVerse
+</a>
+
+</header>
+
+
+
+
+<div class="game-info">
+
+
+<div>
+Score:
+<span id="score">
+0
+</span>
+</div>
+
+
+<div>
+High Score:
+<span id="highScore">
+0
+</span>
+</div>
+
+
+</div>
+
+
+
+
+
+<div class="controls">
+
+
+<button id="startBtn">
+Start Game
+</button>
+
+
+<button id="pauseBtn">
+Pause
+</button>
+
+
+<button id="restartBtn">
+Restart
+</button>
+
+
+<select id="difficulty">
+
+
+<option value="150">
+Easy
+</option>
+
+
+<option value="100">
+Medium
+</option>
+
+
+<option value="60">
+Hard
+</option>
+
+
+</select>
+
+
+</div>
+
+
+
+
+
+
+<canvas id="gameBoard"
+width="400"
+height="400">
+</canvas>
+
+
+
+
+
+<div class="mobile-controls">
+
+
+<button onclick="changeDirection('UP')">
+⬆
+</button>
+
+
+<div>
+
+<button onclick="changeDirection('LEFT')">
+⬅
+</button>
+
+
+<button onclick="changeDirection('DOWN')">
+⬇
+</button>
+
+
+<button onclick="changeDirection('RIGHT')">
+➡
+</button>
+
+</div>
+
+
+</div>
+
+
+
+
+
+<div id="gameOver">
+
+
+<h2>
+Game Over
+</h2>
+
+
+<p>
+Your Score:
+<span id="finalScore">
+0
+</span>
+</p>
+
+
+<button onclick="restartGame()">
+Play Again
+</button>
+
+
+</div>
+
+
+
+
+
+<script src="script.js"></script>
+
+
+</body>
+
+</html>
