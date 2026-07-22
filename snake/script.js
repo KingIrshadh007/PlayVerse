@@ -2049,3 +2049,397 @@ document.body.style.background =
 
 };
 
+/* =====================================
+   GAME OVER SYSTEM
+===================================== */
+
+
+function endGame(){
+
+
+
+clearInterval(gameInterval);
+
+
+
+gameStarted=false;
+
+
+
+playSound(gameOverSound);
+
+
+
+finalScore.innerHTML =
+score;
+
+
+
+gameOverBox
+
+.classList
+
+.remove("hidden");
+
+
+
+saveStatistics();
+
+
+
+checkAchievements();
+
+
+
+}
+
+
+
+
+
+
+
+
+/* =====================================
+   SAVE PLAYER STATISTICS
+===================================== */
+
+
+function saveStatistics(){
+
+
+
+let totalGames =
+
+localStorage.getItem(
+
+"snakeGamesPlayed"
+
+) || 0;
+
+
+
+totalGames++;
+
+
+
+localStorage.setItem(
+
+"snakeGamesPlayed",
+
+totalGames
+
+);
+
+
+
+
+document.getElementById(
+
+"gamesPlayed"
+
+)
+
+.innerHTML=
+
+totalGames;
+
+
+
+
+
+let longest =
+
+localStorage.getItem(
+
+"longestSnake"
+
+) || 0;
+
+
+
+
+
+if(snake.length > longest){
+
+
+
+localStorage.setItem(
+
+"longestSnake",
+
+snake.length
+
+);
+
+
+
+document.getElementById(
+
+"longestSnake"
+
+)
+
+.innerHTML=
+
+snake.length;
+
+
+
+}
+
+
+
+
+
+
+let apples =
+
+localStorage.getItem(
+
+"totalApples"
+
+) || 0;
+
+
+
+apples =
+
+Number(apples)+score;
+
+
+
+localStorage.setItem(
+
+"totalApples",
+
+apples
+
+);
+
+
+
+document.getElementById(
+
+"totalApples"
+
+)
+
+.innerHTML=
+
+apples;
+
+
+}
+
+
+
+
+
+
+
+
+/* =====================================
+   ACHIEVEMENT SYSTEM
+===================================== */
+
+
+const achievementPopup =
+
+document.getElementById(
+
+"achievementPopup"
+
+);
+
+
+
+const achievementText =
+
+document.getElementById(
+
+"achievementText"
+
+);
+
+
+
+
+
+function unlockAchievement(message){
+
+
+
+achievementText.innerHTML=
+
+message;
+
+
+
+achievementPopup
+
+.classList
+
+.remove("hidden");
+
+
+
+setTimeout(function(){
+
+
+
+achievementPopup
+
+.classList
+
+.add("hidden");
+
+
+
+},3000);
+
+
+
+}
+
+
+
+
+
+
+function checkAchievements(){
+
+
+
+if(score>=10){
+
+
+unlockAchievement(
+
+"🍎 Apple Collector - 10 Points!"
+
+);
+
+
+}
+
+
+
+
+if(score>=50){
+
+
+unlockAchievement(
+
+"🔥 Snake Master - 50 Points!"
+
+);
+
+
+}
+
+
+
+
+
+if(highScore>=100){
+
+
+unlockAchievement(
+
+"🏆 Legend Player!"
+
+);
+
+
+}
+
+
+
+}
+
+
+
+
+
+
+
+
+/* =====================================
+   SHARE SCORE
+===================================== */
+
+
+const shareBtn =
+
+document.getElementById(
+
+"shareBtn"
+
+);
+
+
+
+
+
+shareBtn.onclick=function(){
+
+
+
+let message =
+
+"🐍 I scored "
+
++
+
+score
+
++
+
+" points in PlayVerse Snake Game! 🎮";
+
+
+
+
+
+if(navigator.share){
+
+
+
+navigator.share({
+
+
+title:"Snake Game Score",
+
+
+text:message
+
+
+
+});
+
+
+
+}
+
+else{
+
+
+
+navigator.clipboard.writeText(message);
+
+
+
+alert(
+
+"Score copied!"
+
+);
+
+
+
+}
+
+
+
+};
