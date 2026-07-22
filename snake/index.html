@@ -147,3 +147,865 @@ href="style.css">
 </div>
 
 </div>
+
+<!-- Main Game Area -->
+
+<div class="game-area">
+
+
+<div class="game-header">
+
+
+<h2>
+🐍 Snake Arena
+</h2>
+
+
+<div class="difficulty">
+
+
+<label>
+Difficulty:
+</label>
+
+
+<select id="difficulty">
+
+<option value="easy">
+Easy
+</option>
+
+
+<option value="medium" selected>
+Medium
+</option>
+
+
+<option value="hard">
+Hard
+</option>
+
+
+</select>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+<!-- Canvas Game Board -->
+
+
+<div class="canvas-wrapper">
+
+
+<canvas id="gameCanvas"
+width="500"
+height="500">
+
+</canvas>
+
+
+
+
+<!-- Countdown Overlay -->
+
+
+<div id="countdown"
+class="overlay">
+
+
+<span id="countdownNumber">
+
+3
+
+</span>
+
+
+</div>
+
+
+
+
+
+<!-- Game Over Overlay -->
+
+
+<div id="gameOver"
+class="overlay hidden">
+
+
+<div class="popup">
+
+
+<h1>
+💀 Game Over
+</h1>
+
+
+<p>
+
+Your Score:
+
+<span id="finalScore">
+
+0
+
+</span>
+
+</p>
+
+
+
+<button id="restartBtn">
+
+🔄 Play Again
+
+</button>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+<!-- Pause Overlay -->
+
+
+<div id="pauseScreen"
+class="overlay hidden">
+
+
+<div class="popup">
+
+
+<h1>
+⏸ Paused
+</h1>
+
+
+<p>
+Game is paused
+</p>
+
+
+<button id="resumeBtn">
+
+▶ Resume
+
+</button>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+<!-- Game Controls -->
+
+
+<div class="controls">
+
+
+<button id="startBtn">
+
+▶ Start Game
+
+</button>
+
+
+
+<button id="pauseBtn">
+
+⏸ Pause
+
+</button>
+
+
+
+<button id="resetBtn">
+
+🔄 Reset
+
+</button>
+
+
+</div>
+
+
+</div>
+
+  <!-- Mobile Touch Controls -->
+
+<div class="mobile-controls">
+
+
+<button class="direction-btn"
+id="upBtn">
+
+⬆
+
+</button>
+
+
+
+<div class="middle-controls">
+
+
+<button class="direction-btn"
+id="leftBtn">
+
+⬅
+
+</button>
+
+
+
+<button class="direction-btn"
+id="downBtn">
+
+⬇
+
+</button>
+
+
+
+<button class="direction-btn"
+id="rightBtn">
+
+➡
+
+</button>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+<!-- Settings Panel -->
+
+
+<div id="settingsPanel"
+class="settings-panel hidden">
+
+
+<div class="settings-box">
+
+
+<h2>
+⚙ Game Settings
+</h2>
+
+
+
+
+<div class="setting-row">
+
+
+<label>
+Background Theme
+</label>
+
+
+<select id="themeSelect">
+
+
+<option value="forest">
+
+🌲 Forest
+
+</option>
+
+
+<option value="neon">
+
+💜 Neon
+
+</option>
+
+
+<option value="classic">
+
+🟩 Classic
+
+</option>
+
+
+</select>
+
+
+</div>
+
+
+
+
+
+<div class="setting-row">
+
+
+<label>
+
+Sound Effects
+
+</label>
+
+
+<input type="checkbox"
+id="soundToggle"
+checked>
+
+
+</div>
+
+
+
+
+
+<div class="setting-row">
+
+
+<label>
+
+Background Music
+
+</label>
+
+
+<input type="checkbox"
+id="musicToggle"
+checked>
+
+
+</div>
+
+
+
+
+
+
+<button id="closeSettings">
+
+Close
+
+</button>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+<!-- Achievement Popup -->
+
+
+<div id="achievementPopup"
+class="achievement hidden">
+
+
+<div class="achievement-box">
+
+
+<h2>
+🏆 Achievement Unlocked!
+</h2>
+
+
+<p id="achievementText">
+
+Snake Master
+
+</p>
+
+
+</div>
+
+
+</div>
+
+  <!-- Game Instructions Section -->
+
+<section class="instructions">
+
+
+<h2>
+🎮 How To Play
+</h2>
+
+
+<div class="instruction-grid">
+
+
+<div class="instruction-card">
+
+
+<h3>
+⌨ Keyboard
+</h3>
+
+
+<p>
+
+Use arrow keys or WASD
+to control the snake.
+
+</p>
+
+
+</div>
+
+
+
+
+
+<div class="instruction-card">
+
+
+<h3>
+📱 Mobile
+</h3>
+
+
+<p>
+
+Use touch buttons or swipe
+to move the snake.
+
+</p>
+
+
+</div>
+
+
+
+
+
+<div class="instruction-card">
+
+
+<h3>
+🍎 Goal
+</h3>
+
+
+<p>
+
+Eat apples, grow longer
+and achieve the highest score.
+
+</p>
+
+
+</div>
+
+
+
+
+
+<div class="instruction-card">
+
+
+<h3>
+⚠ Avoid
+</h3>
+
+
+<p>
+
+Do not hit walls or
+your own body.
+
+</p>
+
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<!-- Player Statistics -->
+
+<section class="history">
+
+
+<h2>
+📊 Game Statistics
+</h2>
+
+
+
+<div class="history-grid">
+
+
+
+<div class="history-card">
+
+<p>
+Longest Snake
+</p>
+
+<h3 id="longestSnake">
+
+0
+
+</h3>
+
+</div>
+
+
+
+
+
+<div class="history-card">
+
+<p>
+Total Apples
+
+</p>
+
+
+<h3 id="totalApples">
+
+0
+
+</h3>
+
+</div>
+
+
+
+
+
+
+<div class="history-card">
+
+<p>
+Games Played
+
+</p>
+
+
+<h3 id="gamesPlayed">
+
+0
+
+</h3>
+
+</div>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+<!-- Share Section -->
+
+
+<section class="share-section">
+
+
+<h2>
+Share Your Score 🚀
+</h2>
+
+
+
+<button id="shareBtn">
+
+📤 Share Score
+
+</button>
+
+
+
+</section>
+
+  <!-- Premium Features Section -->
+
+<section class="premium-section">
+
+
+<h2>
+⭐ Snake Game Pro Features
+</h2>
+
+
+
+<div class="feature-grid">
+
+
+
+<div class="feature-card">
+
+<h3>
+⚡ Smooth Gameplay
+</h3>
+
+<p>
+Optimized movement with
+professional animation.
+</p>
+
+</div>
+
+
+
+
+
+<div class="feature-card">
+
+<h3>
+📱 Mobile Ready
+</h3>
+
+<p>
+Play comfortably on phones,
+tablets and computers.
+</p>
+
+</div>
+
+
+
+
+
+<div class="feature-card">
+
+<h3>
+🏆 Achievements
+</h3>
+
+<p>
+Unlock rewards by reaching
+new milestones.
+</p>
+
+</div>
+
+
+
+
+
+<div class="feature-card">
+
+<h3>
+🎯 Daily Challenge
+</h3>
+
+<p>
+Complete daily missions
+and improve your score.
+</p>
+
+</div>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<!-- Audio Elements -->
+
+
+<audio id="backgroundMusic"
+loop>
+
+
+<source src="../assets/audio/snake-music.mp3"
+type="audio/mpeg">
+
+
+</audio>
+
+
+
+
+
+<audio id="eatSound">
+
+
+<source src="../assets/audio/eat.mp3"
+type="audio/mpeg">
+
+
+</audio>
+
+
+
+
+
+<audio id="gameOverSound">
+
+
+<source src="../assets/audio/gameover.mp3"
+type="audio/mpeg">
+
+
+</audio>
+
+
+
+
+
+
+
+<!-- Loading Screen -->
+
+
+<div id="loadingScreen">
+
+
+<div class="loader">
+
+
+🐍
+
+
+</div>
+
+
+<p>
+
+Loading Snake Game...
+
+</p>
+
+
+</div>
+
+  <!-- Footer -->
+
+<footer>
+
+
+<div class="footer-content">
+
+
+<h3>
+🐍 Snake Game Pro
+</h3>
+
+
+<p>
+
+Built for PlayVerse Gaming Platform
+
+</p>
+
+
+<div class="footer-links">
+
+
+<a href="../index.html">
+
+Home
+
+</a>
+
+
+<a href="#">
+
+Privacy
+
+</a>
+
+
+<a href="#">
+
+Terms
+
+</a>
+
+
+<a href="#">
+
+Contact
+
+</a>
+
+
+</div>
+
+
+<p class="copyright">
+
+
+© 2026 PlayVerse. All Rights Reserved.
+
+
+</p>
+
+
+</div>
+
+
+</footer>
+
+
+
+
+
+
+<!-- Game JavaScript -->
+
+<script src="script.js"></script>
+
+
+</body>
+
+
+</html>
