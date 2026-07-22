@@ -1,49 +1,208 @@
 /* =====================================
-   PLAYVERSE - SNAKE GAME PRO STYLE
+   PLAYVERSE SNAKE GAME PRO
+   PHASE 1 - PROFESSIONAL UI
 ===================================== */
 
 
 /* RESET */
 
 *{
+
     margin:0;
+
     padding:0;
+
     box-sizing:border-box;
-    font-family:'Segoe UI',Arial,sans-serif;
+
+    font-family:'Poppins',sans-serif;
+
 }
+
+
+
+
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+
 
 
 body{
 
     min-height:100vh;
 
-    background:
-    radial-gradient(circle at top,
-    #0ea5e9,
-    #020617 60%);
+    overflow-x:hidden;
+
+    background:#020617;
 
     color:white;
-
-    display:flex;
-
-    flex-direction:column;
-
-    align-items:center;
-
-    overflow-x:hidden;
 
 }
 
 
 
-/* HEADER */
+
+
+/* =====================================
+   ANIMATED BACKGROUND
+===================================== */
+
+
+.background{
+
+    position:fixed;
+
+    width:100%;
+
+    height:100%;
+
+    top:0;
+
+    left:0;
+
+    overflow:hidden;
+
+    z-index:-1;
+
+    background:
+
+    linear-gradient(
+    135deg,
+    #020617,
+    #064e3b
+    );
+
+}
+
+
+
+
+
+.circle{
+
+    position:absolute;
+
+    border-radius:50%;
+
+    filter:blur(80px);
+
+    opacity:.5;
+
+    animation:
+
+    floating 10s infinite alternate;
+
+}
+
+
+
+
+
+.c1{
+
+    width:300px;
+
+    height:300px;
+
+    background:#22c55e;
+
+    top:10%;
+
+    left:5%;
+
+}
+
+
+
+
+
+.c2{
+
+    width:250px;
+
+    height:250px;
+
+    background:#06b6d4;
+
+    right:10%;
+
+    top:20%;
+
+}
+
+
+
+
+
+.c3{
+
+    width:350px;
+
+    height:350px;
+
+    background:#8b5cf6;
+
+    bottom:10%;
+
+    left:20%;
+
+}
+
+
+
+
+
+.c4{
+
+    width:250px;
+
+    height:250px;
+
+    background:#facc15;
+
+    bottom:20%;
+
+    right:15%;
+
+}
+
+
+
+
+
+@keyframes floating{
+
+
+from{
+
+transform:translateY(0);
+
+}
+
+
+to{
+
+transform:translateY(-60px);
+
+}
+
+
+}
+
+/* =====================================
+   HEADER DESIGN
+===================================== */
 
 
 header{
 
     width:100%;
 
-    padding:25px;
+    padding:20px 40px;
 
     display:flex;
 
@@ -52,37 +211,22 @@ header{
     align-items:center;
 
     background:
+
     rgba(255,255,255,0.08);
 
-    backdrop-filter:blur(15px);
+    backdrop-filter:
 
-}
+    blur(20px);
 
+    border-bottom:
 
-header h1{
+    1px solid rgba(255,255,255,.15);
 
-    color:#22d3ee;
+    position:sticky;
 
-    font-size:32px;
+    top:0;
 
-}
-
-
-header a{
-
-    color:white;
-
-    text-decoration:none;
-
-    padding:10px 20px;
-
-    background:#22d3ee;
-
-    color:#020617;
-
-    border-radius:20px;
-
-    font-weight:bold;
+    z-index:100;
 
 }
 
@@ -90,106 +234,134 @@ header a{
 
 
 
-/* SCORE AREA */
+.logo{
 
 
-.game-info{
+    font-size:30px;
+
+    font-weight:700;
+
+    color:#22c55e;
+
+    text-shadow:
+
+    0 0 20px #22c55e;
 
 
-    margin-top:30px;
+}
+
+
+
+
+
+.header-buttons{
+
 
     display:flex;
 
-    gap:40px;
+    gap:12px;
 
-    font-size:22px;
-
-    font-weight:bold;
+    align-items:center;
 
 
 }
 
 
 
-.game-info span{
-
-    color:#22d3ee;
-
-}
 
 
+.header-buttons button{
 
 
+    padding:12px 20px;
 
-/* BUTTON AREA */
-
-
-.controls{
-
-
-    margin:30px;
-
-    display:flex;
-
-    gap:15px;
-
-    flex-wrap:wrap;
-
-    justify-content:center;
-
-}
-
-
-
-button,
-select{
-
-
-    padding:12px 22px;
 
     border:none;
 
-    border-radius:25px;
 
-    font-size:16px;
+    border-radius:30px;
+
 
     cursor:pointer;
 
-    font-weight:bold;
+
+    color:white;
 
 
-}
+    background:
+
+    rgba(255,255,255,.12);
 
 
-button{
+    border:
 
+    1px solid rgba(255,255,255,.2);
 
-    background:#22d3ee;
-
-    color:#020617;
 
     transition:.3s;
 
+
+    font-size:14px;
+
+
 }
 
 
 
-button:hover{
 
 
-    transform:scale(1.08);
+.header-buttons button:hover{
+
+
+    background:#22c55e;
+
+
+    color:#020617;
+
+
+    transform:
+
+    translateY(-3px);
+
 
     box-shadow:
-    0 0 20px #22d3ee;
+
+    0 0 25px #22c55e;
 
 
 }
 
 
 
-select{
 
-    background:white;
+
+/* =====================================
+   MAIN GAME LAYOUT
+===================================== */
+
+
+.game-container{
+
+
+    width:95%;
+
+
+    max-width:1400px;
+
+
+    margin:40px auto;
+
+
+    display:grid;
+
+
+    grid-template-columns:
+
+    260px 1fr;
+
+
+    gap:30px;
+
 
 }
 
@@ -197,27 +369,276 @@ select{
 
 
 
-/* GAME BOARD */
 
 
-canvas{
+/* =====================================
+   LEFT STATS PANEL
+===================================== */
+
+
+.left-panel{
+
+
+    background:
+
+    rgba(255,255,255,.08);
+
+
+    backdrop-filter:
+
+    blur(20px);
+
+
+    border-radius:30px;
+
+
+    padding:25px;
+
+
+    border:
+
+    1px solid rgba(255,255,255,.15);
+
+
+    box-shadow:
+
+    0 0 40px rgba(34,197,94,.2);
+
+
+}
+
+
+
+
+
+.left-panel h2{
+
+
+    text-align:center;
+
+
+    margin-bottom:25px;
+
+
+    color:#22c55e;
+
+
+}
+
+
+
+
+
+.card{
+
+
+    background:
+
+    rgba(0,0,0,.35);
+
+
+    padding:20px;
+
+
+    margin-bottom:18px;
+
+
+    border-radius:20px;
+
+
+    text-align:center;
+
+
+    border-left:
+
+    4px solid #22c55e;
+
+
+    transition:.3s;
+
+
+}
+
+
+
+
+
+.card:hover{
+
+
+    transform:
+
+    translateX(5px);
+
+
+}
+
+
+
+
+
+.card p{
+
+
+    color:#cbd5e1;
+
+
+    font-size:15px;
+
+
+}
+
+
+
+
+
+.card h3{
+
+
+    margin-top:10px;
+
+
+    font-size:35px;
+
+
+    color:#22d3ee;
+
+
+}
+
+/* =====================================
+   GAME AREA DESIGN
+===================================== */
+
+
+.game-area{
+
+
+    background:
+
+    rgba(255,255,255,.08);
+
+
+    backdrop-filter:
+
+    blur(20px);
+
+
+    border-radius:35px;
+
+
+    padding:30px;
+
+
+    border:
+
+    1px solid rgba(255,255,255,.15);
+
+
+    box-shadow:
+
+    0 0 50px rgba(34,197,94,.25);
+
+
+}
+
+
+
+
+
+
+
+.game-header{
+
+
+    display:flex;
+
+
+    justify-content:space-between;
+
+
+    align-items:center;
+
+
+    margin-bottom:25px;
+
+
+}
+
+
+
+
+
+.game-header h2{
+
+
+    color:#22c55e;
+
+
+    font-size:28px;
+
+
+}
+
+
+
+
+
+
+/* =====================================
+   DIFFICULTY SELECT
+===================================== */
+
+
+.difficulty{
+
+
+    display:flex;
+
+
+    gap:10px;
+
+
+    align-items:center;
+
+
+}
+
+
+
+.difficulty label{
+
+
+    color:#cbd5e1;
+
+
+}
+
+
+
+
+.difficulty select{
+
+
+    padding:10px 20px;
+
+
+    border-radius:20px;
+
+
+    border:none;
+
+
+    outline:none;
 
 
     background:#020617;
 
 
-    border:
-
-    5px solid #22d3ee;
+    color:white;
 
 
-    border-radius:15px;
-
-
-    box-shadow:
-
-    0 0 30px rgba(34,211,238,.5);
-
+    cursor:pointer;
 
 
 }
@@ -226,156 +647,2166 @@ canvas{
 
 
 
-/* MOBILE CONTROLS */
 
 
-.mobile-controls{
+/* =====================================
+   CANVAS AREA
+===================================== */
 
 
-    margin-top:30px;
-
-    text-align:center;
+.canvas-wrapper{
 
 
-}
+    position:relative;
 
 
-.mobile-controls button{
+    display:flex;
 
 
-    margin:5px;
+    justify-content:center;
 
-    width:60px;
 
-    height:60px;
-
-    font-size:25px;
+    align-items:center;
 
 
 }
 
 
 
-
-
-/* GAME OVER */
-
-
-#gameOver{
-
-
-    display:none;
-
-
-    position:fixed;
-
-
-    top:50%;
-
-    left:50%;
-
-
-    transform:
-    translate(-50%,-50%);
-
-
-
-    background:
-
-    rgba(15,23,42,.95);
-
-
-    padding:40px;
-
-
-    border-radius:25px;
-
-
-    text-align:center;
-
-
-    box-shadow:
-
-    0 0 40px #22d3ee;
-
-
-}
-
-
-
-#gameOver h2{
-
-
-    color:#ef4444;
-
-    margin-bottom:20px;
-
-
-}
-
-
-
-#gameOver p{
-
-
-    font-size:22px;
-
-    margin-bottom:20px;
-
-
-}
-
-
-
-
-
-/* MOBILE RESPONSIVE */
-
-
-@media(max-width:600px){
-
-
-header{
-
-
-    flex-direction:column;
-
-    gap:15px;
-
-}
-
-
-
-header h1{
-
-
-    font-size:25px;
-
-
-}
 
 
 
 canvas{
 
 
-    width:90vw;
+    width:500px;
 
-    height:90vw;
+
+    height:500px;
+
+
+    max-width:100%;
+
+
+    background:
+
+
+    linear-gradient(
+
+    135deg,
+
+    #14532d,
+
+    #052e16
+
+    );
+
+
+    border-radius:30px;
+
+
+    border:
+
+    6px solid #22c55e;
+
+
+    box-shadow:
+
+
+    0 0 40px #22c55e;
 
 
 }
 
 
 
-.game-info{
+
+
+
+
+/* =====================================
+   OVERLAY SYSTEM
+===================================== */
+
+
+.overlay{
+
+
+    position:absolute;
+
+
+    inset:0;
+
+
+    display:flex;
+
+
+    justify-content:center;
+
+
+    align-items:center;
+
+
+    background:
+
+    rgba(0,0,0,.65);
+
+
+    backdrop-filter:
+
+    blur(8px);
+
+
+    z-index:10;
+
+
+}
+
+
+
+
+
+.hidden{
+
+
+    display:none!important;
+
+
+}
+
+
+
+
+
+
+/* =====================================
+   COUNTDOWN
+===================================== */
+
+
+#countdownNumber{
+
+
+    font-size:120px;
+
+
+    font-weight:700;
+
+
+    color:#22c55e;
+
+
+    animation:
+
+
+    countdownAnimation 1s infinite;
+
+
+    text-shadow:
+
+
+    0 0 40px #22c55e;
+
+
+}
+
+
+
+
+
+@keyframes countdownAnimation{
+
+
+0%{
+
+
+transform:scale(.5);
+
+
+opacity:0;
+
+
+}
+
+
+
+50%{
+
+
+transform:scale(1.2);
+
+
+opacity:1;
+
+
+}
+
+
+
+100%{
+
+
+transform:scale(1);
+
+
+opacity:0;
+
+
+}
+
+
+}
+
+
+
+
+
+
+/* =====================================
+   POPUP BOXES
+===================================== */
+
+
+.popup{
+
+
+    width:350px;
+
+
+    max-width:90%;
+
+
+    padding:40px;
+
+
+    text-align:center;
+
+
+    background:
+
+
+    rgba(255,255,255,.15);
+
+
+    backdrop-filter:
+
+    blur(20px);
+
+
+    border-radius:30px;
+
+
+    border:
+
+    2px solid #22c55e;
+
+
+    box-shadow:
+
+
+    0 0 40px #22c55e;
+
+
+}
+
+
+
+
+
+.popup h1{
+
+
+    color:#facc15;
+
+
+    margin-bottom:20px;
+
+
+}
+
+
+
+
+
+.popup p{
+
+
+    font-size:22px;
+
+
+    margin-bottom:25px;
+
+
+}
+
+
+
+
+
+
+.popup button{
+
+
+    padding:15px 35px;
+
+
+    border:none;
+
+
+    border-radius:30px;
+
+
+    background:#22c55e;
+
+
+    color:#020617;
+
+
+    font-weight:bold;
+
+
+    cursor:pointer;
 
 
     font-size:18px;
 
+
+    transition:.3s;
+
+
+}
+
+
+
+
+
+.popup button:hover{
+
+
+    transform:scale(1.1);
+
+
+    box-shadow:
+
+
+    0 0 30px #22c55e;
+
+
+}
+
+/* =====================================
+   GAME CONTROL BUTTONS
+===================================== */
+
+
+.controls{
+
+
+    display:flex;
+
+
+    justify-content:center;
+
+
+    gap:20px;
+
+
+    margin-top:30px;
+
+
+    flex-wrap:wrap;
+
+
+}
+
+
+
+
+
+.controls button{
+
+
+    padding:15px 35px;
+
+
+    border:none;
+
+
+    border-radius:35px;
+
+
+    cursor:pointer;
+
+
+    font-size:17px;
+
+
+    font-weight:600;
+
+
+    background:
+
+
+    linear-gradient(
+
+    135deg,
+
+    #22c55e,
+
+    #06b6d4
+
+    );
+
+
+    color:#020617;
+
+
+    transition:.3s;
+
+
+}
+
+
+
+
+
+.controls button:hover{
+
+
+    transform:
+
+    translateY(-5px);
+
+
+    box-shadow:
+
+
+    0 0 30px #22c55e;
+
+
+}
+
+
+
+
+
+
+
+
+/* =====================================
+   MOBILE TOUCH CONTROLS
+===================================== */
+
+
+.mobile-controls{
+
+
+    display:none;
+
+
+    margin-top:35px;
+
+
+    text-align:center;
+
+
+}
+
+
+
+
+.middle-controls{
+
+
+    display:flex;
+
+
+    justify-content:center;
+
+
+    gap:15px;
+
+
+    margin-top:10px;
+
+
+}
+
+
+
+
+
+.direction-btn{
+
+
+    width:65px;
+
+
+    height:65px;
+
+
+    border:none;
+
+
+    border-radius:50%;
+
+
+    font-size:28px;
+
+
+    background:
+
+
+    rgba(255,255,255,.15);
+
+
+    color:white;
+
+
+    cursor:pointer;
+
+
+    backdrop-filter:
+
+
+    blur(10px);
+
+
+    border:
+
+
+    1px solid rgba(255,255,255,.3);
+
+
+    transition:.2s;
+
+
+}
+
+
+
+
+
+.direction-btn:active{
+
+
+    transform:scale(.9);
+
+
+    background:#22c55e;
+
+
+    color:#020617;
+
+
+}
+
+
+
+
+
+
+
+/* =====================================
+   SETTINGS PANEL
+===================================== */
+
+
+.settings-panel{
+
+
+    position:fixed;
+
+
+    inset:0;
+
+
+    background:
+
+
+    rgba(0,0,0,.7);
+
+
+    display:flex;
+
+
+    justify-content:center;
+
+
+    align-items:center;
+
+
+    z-index:200;
+
+
+    backdrop-filter:
+
+
+    blur(10px);
+
+
+}
+
+
+
+
+
+
+
+.settings-box{
+
+
+    width:400px;
+
+
+    max-width:90%;
+
+
+    padding:35px;
+
+
+    border-radius:30px;
+
+
+    background:
+
+
+    rgba(255,255,255,.12);
+
+
+    border:
+
+
+    2px solid #22c55e;
+
+
+    box-shadow:
+
+
+    0 0 40px #22c55e;
+
+
+}
+
+
+
+
+
+.settings-box h2{
+
+
+    text-align:center;
+
+
+    color:#22c55e;
+
+
+    margin-bottom:25px;
+
+
+}
+
+
+
+
+
+.setting-row{
+
+
+    display:flex;
+
+
+    justify-content:space-between;
+
+
+    align-items:center;
+
+
+    margin:20px 0;
+
+
+    font-size:17px;
+
+
+}
+
+
+
+
+
+.setting-row select{
+
+
+    padding:10px;
+
+
+    border-radius:15px;
+
+
+    background:#020617;
+
+
+    color:white;
+
+
+}
+
+
+
+
+
+
+
+.setting-row input{
+
+
+    width:22px;
+
+
+    height:22px;
+
+
+}
+
+
+
+
+
+
+
+#closeSettings{
+
+
+    width:100%;
+
+
+    padding:14px;
+
+
+    border:none;
+
+
+    border-radius:30px;
+
+
+    background:#22c55e;
+
+
+    font-weight:bold;
+
+
+    cursor:pointer;
+
+
+}
+
+
+
+
+
+
+
+/* =====================================
+   ACHIEVEMENT POPUP
+===================================== */
+
+
+.achievement{
+
+
+    position:fixed;
+
+
+    top:30px;
+
+
+    right:30px;
+
+
+    z-index:300;
+
+
+}
+
+
+
+
+
+.achievement-box{
+
+
+    padding:25px;
+
+
+    border-radius:25px;
+
+
+    background:
+
+
+    rgba(250,204,21,.15);
+
+
+    border:
+
+
+    2px solid #facc15;
+
+
+    box-shadow:
+
+
+    0 0 30px #facc15;
+
+
+    animation:
+
+
+    achievementShow .5s;
+
+
+}
+
+
+
+
+
+.achievement-box h2{
+
+
+    color:#facc15;
+
+
+}
+
+
+
+
+
+@keyframes achievementShow{
+
+
+from{
+
+
+transform:translateX(300px);
+
+
+}
+
+
+
+to{
+
+
+transform:translateX(0);
+
+
+}
+
+
+}
+
+/* =====================================
+   INSTRUCTIONS SECTION
+===================================== */
+
+
+.instructions,
+.history,
+.premium-section,
+.share-section{
+
+
+    width:95%;
+
+
+    max-width:1200px;
+
+
+    margin:50px auto;
+
+
+    padding:35px;
+
+
+    background:
+
+
+    rgba(255,255,255,.08);
+
+
+    backdrop-filter:
+
+
+    blur(20px);
+
+
+    border-radius:35px;
+
+
+    border:
+
+
+    1px solid rgba(255,255,255,.15);
+
+
+    box-shadow:
+
+
+    0 0 40px rgba(34,197,94,.15);
+
+
+}
+
+
+
+
+
+.instructions h2,
+.history h2,
+.premium-section h2,
+.share-section h2{
+
+
+    text-align:center;
+
+
+    color:#22c55e;
+
+
+    margin-bottom:35px;
+
+
+    font-size:30px;
+
+
+}
+
+
+
+
+
+
+
+/* =====================================
+   CARD GRIDS
+===================================== */
+
+
+.instruction-grid,
+.history-grid,
+.feature-grid{
+
+
+    display:grid;
+
+
+    grid-template-columns:
+
+
+    repeat(4,1fr);
+
+
+    gap:25px;
+
+
+}
+
+
+
+
+
+
+
+
+.instruction-card,
+.history-card,
+.feature-card{
+
+
+    padding:25px;
+
+
+    border-radius:25px;
+
+
+    background:
+
+
+    rgba(0,0,0,.35);
+
+
+    text-align:center;
+
+
+    transition:.3s;
+
+
+    border:
+
+
+    1px solid rgba(255,255,255,.1);
+
+
+}
+
+
+
+
+
+
+.instruction-card:hover,
+.history-card:hover,
+.feature-card:hover{
+
+
+    transform:
+
+
+    translateY(-10px);
+
+
+    box-shadow:
+
+
+    0 0 25px rgba(34,197,94,.5);
+
+
+}
+
+
+
+
+
+.instruction-card h3,
+.feature-card h3{
+
+
+    color:#facc15;
+
+
+    margin-bottom:15px;
+
+
+}
+
+
+
+
+.instruction-card p,
+.feature-card p{
+
+
+    color:#cbd5e1;
+
+
+    line-height:1.6;
+
+
+}
+
+
+
+
+
+
+
+
+/* =====================================
+   STATISTICS CARDS
+===================================== */
+
+
+.history-card p{
+
+
+    color:#94a3b8;
+
+
+    font-size:16px;
+
+
+}
+
+
+
+
+
+.history-card h3{
+
+
+    margin-top:15px;
+
+
+    font-size:35px;
+
+
+    color:#22d3ee;
+
+
+}
+
+
+
+
+
+
+
+
+/* =====================================
+   SHARE BUTTON
+===================================== */
+
+
+.share-section{
+
+
+    text-align:center;
+
+
+}
+
+
+
+
+
+#shareBtn{
+
+
+    padding:15px 45px;
+
+
+    border:none;
+
+
+    border-radius:40px;
+
+
+    background:
+
+
+    linear-gradient(
+
+    135deg,
+
+    #8b5cf6,
+
+    #ec4899
+
+    );
+
+
+    color:white;
+
+
+    font-size:18px;
+
+
+    font-weight:bold;
+
+
+    cursor:pointer;
+
+
+    transition:.3s;
+
+
+}
+
+
+
+
+#shareBtn:hover{
+
+
+    transform:
+
+
+    scale(1.08);
+
+
+    box-shadow:
+
+
+    0 0 30px #ec4899;
+
+
+}
+
+
+
+
+
+
+
+
+/* =====================================
+   PREMIUM FEATURES
+===================================== */
+
+
+.feature-card{
+
+
+    min-height:180px;
+
+
+}
+
+
+
+
+
+.feature-card h3{
+
+
+    font-size:20px;
+
+
+}
+
+
+
+
+
+
+
+
+/* =====================================
+   FOOTER
+===================================== */
+
+
+footer{
+
+
+    width:100%;
+
+
+    margin-top:50px;
+
+
+    padding:40px 20px;
+
+
+    background:
+
+
+    rgba(0,0,0,.5);
+
+
+    text-align:center;
+
+
+}
+
+
+
+
+
+.footer-content h3{
+
+
+    color:#22c55e;
+
+
+    font-size:25px;
+
+
+}
+
+
+
+
+
+.footer-content p{
+
+
+    color:#94a3b8;
+
+
+    margin:15px;
+
+
+}
+
+
+
+
+
+.footer-links{
+
+
+    display:flex;
+
+
+    justify-content:center;
+
+
+    gap:25px;
+
+
+    flex-wrap:wrap;
+
+
+}
+
+
+
+
+
+.footer-links a{
+
+
+    color:#22d3ee;
+
+
+    text-decoration:none;
+
+
+}
+
+
+
+
+.footer-links a:hover{
+
+
+    color:#facc15;
+
+
+}
+
+
+
+
+
+.copyright{
+
+
+    font-size:14px;
+
+
+}
+
+/* =====================================
+   RESPONSIVE DESIGN
+===================================== */
+
+
+/* TABLET */
+
+@media(max-width:1100px){
+
+
+.game-container{
+
+
+    grid-template-columns:1fr;
+
+
+}
+
+
+
+.left-panel{
+
+
+    display:grid;
+
+
+    grid-template-columns:
+
+
+    repeat(4,1fr);
+
+
+    gap:15px;
+
+
+}
+
+
+
+.left-panel h2{
+
+
+    grid-column:1/-1;
+
+
+}
+
+
+
+.card{
+
+
+    margin:0;
+
+
+}
+
+
+
+.instruction-grid,
+.history-grid,
+.feature-grid{
+
+
+    grid-template-columns:
+
+
+    repeat(2,1fr);
+
+
+}
+
+
+}
+
+
+
+
+
+
+
+
+/* MOBILE */
+
+@media(max-width:700px){
+
+
+
+body{
+
+
+    overflow-x:hidden;
+
+
+}
+
+
+
+
+header{
+
+
+    padding:15px;
+
+
+    flex-direction:column;
+
+
+    gap:20px;
+
+
+}
+
+
+
+
+.logo{
+
+
+    font-size:24px;
+
+
+}
+
+
+
+
+
+.header-buttons{
+
+
+    width:100%;
+
+
+    justify-content:center;
+
+
+    flex-wrap:wrap;
+
+
+}
+
+
+
+
+
+.header-buttons button{
+
+
+    padding:10px 15px;
+
+
+    font-size:12px;
+
+
+}
+
+
+
+
+
+
+.game-container{
+
+
+    width:95%;
+
+
+    margin:20px auto;
+
+
+}
+
+
+
+
+
+.left-panel{
+
+
+    grid-template-columns:
+
+
+    repeat(2,1fr);
+
+
+    padding:15px;
+
+
+}
+
+
+
+.card h3{
+
+
+    font-size:25px;
+
+
+}
+
+
+
+
+
+
+.game-area{
+
+
+    padding:15px;
+
+
+}
+
+
+
+
+
+.game-header{
+
+
+    flex-direction:column;
+
+
+    gap:15px;
+
+
+}
+
+
+
+
+
+.game-header h2{
+
+
+    font-size:22px;
+
+
+}
+
+
+
+
+
+canvas{
+
+
+    width:100%;
+
+
+    height:auto;
+
+
+    aspect-ratio:1/1;
+
+
+}
+
+
+
+
+
+
+.controls{
+
+
+    gap:10px;
+
+
+}
+
+
+
+
+.controls button{
+
+
+    width:100%;
+
+
+}
+
+
+
+
+
+
+.mobile-controls{
+
+
+    display:block;
+
+
+}
+
+
+
+
+
+
+
+.direction-btn{
+
+
+    width:70px;
+
+
+    height:70px;
+
+
+    font-size:30px;
+
+
+}
+
+
+
+
+
+
+
+.instructions,
+.history,
+.premium-section,
+.share-section{
+
+
+    padding:25px 15px;
+
+
+}
+
+
+
+
+
+.instruction-grid,
+.history-grid,
+.feature-grid{
+
+
+    grid-template-columns:1fr;
+
+
+}
+
+
+
+
+
+.settings-box{
+
+
+    padding:25px;
+
+
+}
+
+
+
+
+
+.popup{
+
+
+    padding:30px 20px;
+
+
+}
+
+
+
+
+
+#countdownNumber{
+
+
+    font-size:80px;
+
+
+}
+
+
+
+
+
+
+
+footer{
+
+
+    padding:30px 15px;
+
+
 }
 
 
 
 }
 
+
+
+
+
+
+
+
+/* SMALL PHONES */
+
+@media(max-width:400px){
+
+
+
+.direction-btn{
+
+
+    width:60px;
+
+
+    height:60px;
+
+
+}
+
+
+.logo{
+
+
+    font-size:20px;
+
+
+}
+
+
+
+.card h3{
+
+
+    font-size:22px;
+
+
+}
+
+
+}
+
+/* =====================================
+   FINAL GAMING POLISH
+===================================== */
+
+
+
+/* SMOOTH PAGE TRANSITIONS */
+
+section,
+.card,
+.feature-card,
+.instruction-card,
+.history-card,
+button{
+
+    transition:
+
+    all .3s ease;
+
+}
+
+
+
+
+
+/* =====================================
+   LOADING SCREEN
+===================================== */
+
+
+#loadingScreen{
+
+
+    position:fixed;
+
+
+    inset:0;
+
+
+    background:#020617;
+
+
+    display:flex;
+
+
+    justify-content:center;
+
+
+    align-items:center;
+
+
+    flex-direction:column;
+
+
+    z-index:999;
+
+
+}
+
+
+
+.loader{
+
+
+    font-size:80px;
+
+
+    animation:
+
+
+    snakeLoading 1s infinite alternate;
+
+
+}
+
+
+
+
+#loadingScreen p{
+
+
+    margin-top:20px;
+
+
+    color:#22c55e;
+
+
+    font-size:22px;
+
+
+}
+
+
+
+
+@keyframes snakeLoading{
+
+
+from{
+
+
+transform:translateY(0) rotate(0deg);
+
+
+}
+
+
+to{
+
+
+transform:translateY(-25px) rotate(10deg);
+
+
+}
+
+
+}
+
+
+
+
+
+
+/* =====================================
+   SCROLLBAR DESIGN
+===================================== */
+
+
+
+::-webkit-scrollbar{
+
+
+    width:10px;
+
+
+}
+
+
+
+::-webkit-scrollbar-track{
+
+
+    background:#020617;
+
+
+}
+
+
+
+::-webkit-scrollbar-thumb{
+
+
+    background:#22c55e;
+
+
+    border-radius:20px;
+
+
+}
+
+
+
+::-webkit-scrollbar-thumb:hover{
+
+
+    background:#16a34a;
+
+
+}
+
+
+
+
+
+
+
+/* =====================================
+   TEXT SELECTION
+===================================== */
+
+
+
+::selection{
+
+
+    background:#22c55e;
+
+
+    color:#020617;
+
+
+}
+
+
+
+
+
+
+
+/* =====================================
+   BUTTON PRESS EFFECT
+===================================== */
+
+
+
+button:active{
+
+
+    transform:scale(.95);
+
+
+}
+
+
+
+
+
+
+
+/* =====================================
+   GAME GLOW EFFECT
+===================================== */
+
+
+
+.game-area:hover{
+
+
+    box-shadow:
+
+
+    0 0 70px rgba(34,197,94,.35);
+
+
+}
+
+
+
+
+
+
+
+/* =====================================
+   NEON TITLE EFFECT
+===================================== */
+
+
+
+.logo{
+
+
+    animation:
+
+
+    logoGlow 3s infinite alternate;
+
+
+}
+
+
+
+
+
+@keyframes logoGlow{
+
+
+from{
+
+
+text-shadow:
+
+
+0 0 10px #22c55e;
+
+
+}
+
+
+to{
+
+
+text-shadow:
+
+
+0 0 35px #22c55e;
+
+
+}
+
+
+}
+
+
+
+
+
+
+
+/* =====================================
+   MOBILE FULLSCREEN SUPPORT
+===================================== */
+
+
+
+.fullscreen-mode{
+
+
+    width:100vw!important;
+
+
+    height:100vh!important;
+
+
+    margin:0!important;
+
+
+    padding:0!important;
+
+
+}
+
+
+
+
+
+.fullscreen-mode canvas{
+
+
+    max-height:90vh;
+
+
+}
+
+
+
+
+
+/* =====================================
+   DISABLE IMAGE DRAG
+===================================== */
+
+
+
+img{
+
+
+    user-select:none;
+
+
+}
+
+
+
+
+
+
+
+/* =====================================
+   ACCESSIBILITY
+===================================== */
+
+
+
+button:focus,
+select:focus{
+
+
+    outline:
+
+    2px solid #22d3ee;
+
+
+}
