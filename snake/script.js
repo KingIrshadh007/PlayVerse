@@ -2639,3 +2639,32 @@ highScore
 
 draw();
 
+/* =====================================
+   REMOVE LOADING SCREEN
+===================================== */
+
+
+window.addEventListener("load", function(){
+
+
+    const loadingScreen =
+    document.getElementById("loadingScreen");
+
+
+    if(loadingScreen){
+
+
+        setTimeout(function(){
+
+
+            loadingScreen.style.display="none";
+
+
+        },1000);
+
+
+    }
+
+
+});
+
