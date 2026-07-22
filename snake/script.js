@@ -2443,3 +2443,199 @@ alert(
 
 
 };
+
+/* =====================================
+   LOAD SAVED STATISTICS
+===================================== */
+
+
+window.onload=function(){
+
+
+
+initializeGame();
+
+
+
+
+document.getElementById(
+
+"gamesPlayed"
+
+)
+
+.innerHTML =
+
+localStorage.getItem(
+
+"snakeGamesPlayed"
+
+) || 0;
+
+
+
+
+
+
+document.getElementById(
+
+"longestSnake"
+
+)
+
+.innerHTML =
+
+localStorage.getItem(
+
+"longestSnake"
+
+) || 0;
+
+
+
+
+
+
+
+document.getElementById(
+
+"totalApples"
+
+)
+
+.innerHTML =
+
+localStorage.getItem(
+
+"totalApples"
+
+) || 0;
+
+
+
+};
+
+
+
+
+
+
+
+
+/* =====================================
+   PLAY AGAIN BUTTON
+===================================== */
+
+
+const restartBtn =
+
+document.getElementById(
+
+"restartBtn"
+
+);
+
+
+
+
+restartBtn.onclick=function(){
+
+
+
+gameOverBox
+
+.classList
+
+.add("hidden");
+
+
+
+startCountdown();
+
+
+
+};
+
+
+
+
+
+
+
+/* =====================================
+   PREVENT MOBILE SCROLL
+===================================== */
+
+
+document.addEventListener(
+
+"touchmove",
+
+function(event){
+
+
+
+if(gameStarted){
+
+
+
+event.preventDefault();
+
+
+
+}
+
+
+
+},
+
+{
+
+passive:false
+
+}
+
+);
+
+
+
+
+
+
+
+
+/* =====================================
+   AUTO SAVE HIGH SCORE
+===================================== */
+
+
+setInterval(function(){
+
+
+
+localStorage.setItem(
+
+"snakeHighScore",
+
+highScore
+
+);
+
+
+
+},5000);
+
+
+
+
+
+
+
+
+/* =====================================
+   START SCREEN DRAW
+===================================== */
+
+
+draw();
+
