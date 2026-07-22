@@ -672,6 +672,8 @@ function moveSnake(){
         score++;
 
 
+       playSound(eatSound);
+
 
         updateScore();
 
