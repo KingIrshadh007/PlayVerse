@@ -4,179 +4,146 @@
 <head>
 
 <meta charset="UTF-8">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Snake Game Pro | PlayVerse</title>
 
-<title>Snake Game Pro - PlayVerse</title>
+<meta name="description"
+content="Play the professional Snake Game online with fullscreen, music, achievements, countdown and beautiful graphics.">
 
-<meta name="description" content="Play the classic Snake Game online. Eat food, increase your score and beat your high score.">
+<meta name="keywords"
+content="Snake Game, Online Snake, HTML5 Game, PlayVerse">
 
-<link rel="stylesheet" href="style.css">
+<meta name="theme-color"
+content="#0f172a">
+
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+rel="stylesheet">
+
+<link rel="stylesheet"
+href="style.css">
 
 </head>
 
-
 <body>
 
+<!-- Animated Background -->
+
+<div class="background">
+
+<div class="circle c1"></div>
+<div class="circle c2"></div>
+<div class="circle c3"></div>
+<div class="circle c4"></div>
+
+</div>
+
+<!-- Header -->
 
 <header>
 
-<h1>
-🐍 Snake Game Pro
-</h1>
+<div class="logo">
 
-<a href="../../index.html">
-⬅ Back to PlayVerse
+🐍 Snake Game Pro
+
+</div>
+
+<div class="header-buttons">
+
+<button id="musicBtn">
+
+🎵 Music
+
+</button>
+
+<button id="fullscreenBtn">
+
+⛶ Fullscreen
+
+</button>
+
+<button id="settingsBtn">
+
+⚙ Settings
+
+</button>
+
+<a href="../index.html">
+
+<button>
+
+🏠 Home
+
+</button>
+
 </a>
+
+</div>
 
 </header>
 
+<!-- Main Container -->
 
+<div class="game-container">
 
+<div class="left-panel">
 
-<div class="game-info">
+<h2>Game Stats</h2>
 
+<div class="card">
 
-<div>
-Score:
-<span id="score">
+<p>Score</p>
+
+<h3 id="score">
+
 0
-</span>
+
+</h3>
+
 </div>
 
+<div class="card">
 
-<div>
-High Score:
-<span id="highScore">
+<p>High Score</p>
+
+<h3 id="highScore">
+
 0
-</span>
-</div>
 
-
-</div>
-
-
-
-
-
-<div class="controls">
-
-
-<button id="startBtn">
-Start Game
-</button>
-
-
-<button id="pauseBtn">
-Pause
-</button>
-
-
-<button id="restartBtn">
-Restart
-</button>
-
-
-<select id="difficulty">
-
-
-<option value="150">
-Easy
-</option>
-
-
-<option value="100">
-Medium
-</option>
-
-
-<option value="60">
-Hard
-</option>
-
-
-</select>
-
+</h3>
 
 </div>
 
+<div class="card">
 
+<p>Level</p>
 
+<h3 id="level">
 
+1
 
-
-<canvas id="gameBoard"
-width="400"
-height="400">
-</canvas>
-
-
-
-
-
-<div class="mobile-controls">
-
-
-<button onclick="changeDirection('UP')">
-⬆
-</button>
-
-
-<div>
-
-<button onclick="changeDirection('LEFT')">
-⬅
-</button>
-
-
-<button onclick="changeDirection('DOWN')">
-⬇
-</button>
-
-
-<button onclick="changeDirection('RIGHT')">
-➡
-</button>
+</h3>
 
 </div>
 
+<div class="card">
+
+<p>Time</p>
+
+<h3 id="timer">
+
+00:00
+
+</h3>
 
 </div>
 
-
-
-
-
-<div id="gameOver">
-
-
-<h2>
-Game Over
-</h2>
-
-
-<p>
-Your Score:
-<span id="finalScore">
-0
-</span>
-</p>
-
-
-<button onclick="restartGame()">
-Play Again
-</button>
-
-
 </div>
-
-
-
-
-
-<script src="script.js"></script>
-
-
-</body>
-
-</html>
